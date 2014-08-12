@@ -259,8 +259,7 @@ var flattenData = function(config, data, parentKey){
     }
 
     if (_.isArray(value)){
-      keyName += '[]';
-      hash[keyName] = value;
+      hash = flattenData(config, value, keyName);
     } else if (_.isObject(value)){
       hash = flattenData(config, value, keyName);
     } else {
